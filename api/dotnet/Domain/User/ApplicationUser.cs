@@ -21,7 +21,7 @@ namespace Domain.User
         /// <summary>
         /// The user's display name to be used in the application
         /// </summary>
-        public string Displayname { get; set; }
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// The user's email
