@@ -1,10 +1,12 @@
 ﻿using Domain.MetaData;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Inventory
 {
     /// <summary>
     /// Holds the relationship between a <see cref="FileBlob"/> and an <see cref="InventoryItem"/>
     /// </summary>
+    [Table("ItemFiles", Schema = Schemas.Inventory)]
     public class ItemFile : AuditableEntity
     {
         /// <summary>

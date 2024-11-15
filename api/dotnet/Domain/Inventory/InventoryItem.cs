@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace Domain.Inventory
     /// <summary>
     /// Stores data associated with an item in the home inventory
     /// </summary>
+    [Table("InventoryItems", Schema = Schemas.Inventory)]
     public class InventoryItem : AuditableEntity
     {
         /// <summary>

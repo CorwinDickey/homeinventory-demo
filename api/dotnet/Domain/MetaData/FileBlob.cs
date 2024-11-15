@@ -1,8 +1,11 @@
-﻿namespace Domain.MetaData
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.MetaData
 {
     /// <summary>
     /// Stores the metadata for a fileblob
     /// </summary>
+    [Table("FileBlobs", Schema = Schemas.MetaData)]
     public class FileBlob : AuditableEntity
     {
         /// <summary>
