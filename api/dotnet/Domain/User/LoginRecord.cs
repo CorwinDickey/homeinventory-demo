@@ -10,6 +10,7 @@ namespace Domain.User
     /// <summary>
     /// The login record for a particular user
     /// </summary>
+    [Table("LoginRecords", Schema = Schemas.User)]
     public class LoginRecord : BaseEntity
     {
         /// <summary>
