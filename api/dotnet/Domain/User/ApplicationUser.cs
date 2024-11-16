@@ -11,7 +11,7 @@ namespace Domain.User
     /// A user of the application
     /// </summary>
     [Table("Users", Schema = Schemas.User)]
-    public class ApplicationUser : BaseEntity
+    public class ApplicationUser : AuditableEntity
     {
         /// <summary>
         /// The user's unique Id in the authentication tenant/source
