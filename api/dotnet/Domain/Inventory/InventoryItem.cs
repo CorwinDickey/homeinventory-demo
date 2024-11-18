@@ -49,6 +49,11 @@ namespace Domain.Inventory
         public string Brand { get; set; }
 
         /// <summary>
+        /// Additional notes or description of the item
+        /// </summary>
+        public string Notes { get; set; }
+
+        /// <summary>
         /// A collection of files associated with the inventory item
         /// </summary>
         public ICollection<ItemFile> Files { get; set; }
