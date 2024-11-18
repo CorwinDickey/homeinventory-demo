@@ -1,5 +1,7 @@
 using System.Reflection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Web;
 using Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,7 +42,11 @@ if (!string.IsNullOrWhiteSpace(appInsightsConnectionString))
 
 // Add services to the container.
 
+// Configure the web controllers.
 builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(builder.Configuration);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
