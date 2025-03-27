@@ -30,10 +30,5 @@ namespace Domain
         /// The timestamp the entity was "deleted" at
         /// </summary>
         public DateTimeOffset? DeletedDate { get; set; }
-
-        /// <summary>
-        /// The DB Id of the user who "deleted" the entity
-        /// </summary>
-        public int? DeletedUserId { get; set; }
     }
 }

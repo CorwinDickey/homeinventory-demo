@@ -25,7 +25,7 @@ namespace Services.Dtos
         /// <summary>
         /// DB Id of the entity this entity is based on, if this entity is a modification of a previous entry. Null if newly created entity.
         /// </summary>
-        public int? ParentId { get; set; }
+        public int? ParentEntityId { get; set; }
 
         /// <summary>
         /// ISO 8601 string of the date the entity was deleted by the user, if any.
