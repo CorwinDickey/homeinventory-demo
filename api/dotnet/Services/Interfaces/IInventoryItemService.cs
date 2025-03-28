@@ -12,11 +12,9 @@ namespace Services.Interfaces
         /// <summary>
         /// Creates a new inventory item and adds it to the DB.
         /// </summary>
-        /// <param name="user">User creating the item.</param>
         /// <param name="itemDto">Data model containing information about the item to be created.</param>
         /// <returns><see cref="InventoryItemDto"/> with metadata after creation.</returns>
-        Task<InventoryItemDto> CreateInventoryItem(
-            ApplicationUser user, InventoryItemDto itemDto);
+        Task<InventoryItemDto> CreateAsync(InventoryItemDto itemDto);
 
         /// <summary>
         /// Creates a new entity with updated data, maintains original data for history and auditing.
@@ -24,7 +22,7 @@ namespace Services.Interfaces
         /// <param name="user">User updating the item.</param>
         /// <param name="itemDto">Data model containing updated item information.</param>
         /// <returns><see cref="InventoryItemDto"/> with data for new record and Id of original entity for historical data/auditing.</returns>
-        Task<InventoryItemDto> UpdateInventoryItem(
+        Task<InventoryItemDto> UpdateAsync(
             ApplicationUser user, InventoryItemDto itemDto);
 
         /// <summary>
@@ -33,6 +31,27 @@ namespace Services.Interfaces
         /// <param name="user">User deleting the item.</param>
         /// <param name="id">DB Id of the item being deleted.</param>
         /// <returns>Empty task</returns>
-        Task DeleteInventoryItem(ApplicationUser user, int id);
+        Task DeleteAsync(ApplicationUser user, int id);
+
+        /// <summary>
+        /// Gets a list of all current inventory items that the user has access to
+        /// </summary>
+        /// <param name="user">User requesting items</param>
+        /// <returns>List of <see cref="InventoryItemDto"/></returns>
+        ICollection<InventoryItemDto> GetAll(ApplicationUser user);
+
+        /// <summary>
+        /// Gets a list of all inventory items and their historical records that the user has access to
+        /// </summary>
+        /// <param name="user">User requesting items</param>
+        /// <returns>List of <see cref="InventoryItemDto"/></returns>
+        ICollection<InventoryItemDto> GetAllWithHistory(ApplicationUser user);
+
+        /// <summary>
+        /// Gets a list of all deleted inventory items that the user has access to
+        /// </summary>
+        /// <param name="user">User requesting items</param>
+        /// <returns>List of <see cref="InventoryItemDto"/></returns>
+        ICollection<InventoryItemDto> GetAllDeleted(ApplicationUser user);
     }
 }
